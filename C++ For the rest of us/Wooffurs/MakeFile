@@ -1,0 +1,16 @@
+all:wooffurs clean
+
+wooffurs: main.o breeds.o dog.o 
+	g++ -o wooffurs dog.cpp breeds.cpp main.cpp
+
+main.o: main.cpp 
+	g++ -c main.cpp
+
+dog.o: dog.cpp dog.h
+	g++ -c dog.cpp 
+
+breeds.o: breeds.cpp breeds.h
+	g++ -c breeds.cpp
+
+clean:
+	del /f *.o

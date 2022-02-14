@@ -1,0 +1,25 @@
+all:Database clean
+
+Database: main.o ListIndex.o List_Base.o TrackParser.o PlayList.o
+	g++ -o p main.cpp menuManager.cpp ListIndex.cpp List_Base.cpp PlayList.cpp TrackParser.cpp
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+menuManager.o: menuManager.cpp
+	g++ -c menuManager.cpp
+
+List_Base.o: List_Base.cpp
+	g++ -c List_Base.cpp
+
+ListIndex.o: ListIndex.cpp
+	g++ -c ListIndex.cpp
+
+TrackParser.o: TrackParser.cpp
+	g++ -c TrackParser.cpp
+
+PlayList.o: PlayList.cpp
+	g++ -c PlayList.cpp
+
+clean:
+	del /f *.o
